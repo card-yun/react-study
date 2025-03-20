@@ -14,13 +14,17 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    const Title = (
-      <h1 id="title" onMouseEnter={() => console.log("Mouse was entered!")}>
-        This is new Title.
-      </h1>
-    );
+    // need to be FUNCTION
+    function Title() {
+      return (
+        <h1 id="title" onMouseEnter={() => console.log("Mouse was entered!")}>
+          This is new Title.
+        </h1>
+      );
+    }
 
-    const Button = (
+    // arrow FUNCTION
+    const Button = () => (
       <button
         style={{ backgroundColor: "tomato" }}
         onClick={() => console.log("I am clicked!")}
@@ -29,7 +33,13 @@
       </button>
     );
 
-    const container = React.createElement("div", null, [Title, Button]);
-    ReactDOM.render(container, root);
+    const Container = (
+      <div>
+        <Title /> <Button />
+      </div>
+    );
+    // Must be "Uppercase" (JSX)!
+    // If these are lowercase, React and JSX interpret these for HTML Tag.
+    ReactDOM.render(Container, root);
   </script>
 </html>
