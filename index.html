@@ -13,33 +13,17 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-
-    // need to be FUNCTION
-    function Title() {
+    function App() {
+      const data = React.useState();
+      console.log(data); // [undefined(data), function]
       return (
-        <h1 id="title" onMouseEnter={() => console.log("Mouse was entered!")}>
-          This is new Title.
-        </h1>
+        <div>
+          <h3>Total clicks: 0</h3>
+          <button>Click me!</button>
+        </div>
       );
     }
-
-    // arrow FUNCTION
-    const Button = () => (
-      <button
-        style={{ backgroundColor: "tomato" }}
-        onClick={() => console.log("I am clicked!")}
-      >
-        Click me!
-      </button>
-    );
-
-    const Container = (
-      <div>
-        <Title /> <Button />
-      </div>
-    );
-    // Must be "Uppercase" (JSX)!
-    // If these are lowercase, React and JSX interpret these for HTML Tag.
-    ReactDOM.render(Container, root);
+    // page render
+    ReactDOM.render(<App />, root);
   </script>
 </html>
