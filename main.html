@@ -15,7 +15,7 @@
     function App() {
       const [minutes, setMinutes] = React.useState();
       const onChange = (event) => {
-        console.log(event.target.value);
+        setMinutes(event.target.value);
       };
       //class->className [JSX]
       //for->htmlFor [JSX]
@@ -30,6 +30,7 @@
             value={minutes}
             onChange={onChange}
           />
+          <h4>You want to convert {minutes}</h4>
           <label htmlFor="hours">Hours</label>
           <input id="hours" placeholder="Hours" type="number" />
         </div>
