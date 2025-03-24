@@ -14,12 +14,14 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      const data = React.useState();
-      console.log(data); // [undefined(data), function]
+      let [counter, setCounter] = React.useState(0); // [undefined(data), function]
+      const onClick = () => {
+        setCounter((current) => current + 1);
+      };
       return (
         <div>
-          <h3>Total clicks: 0</h3>
-          <button>Click me!</button>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me!</button>
         </div>
       );
     }
